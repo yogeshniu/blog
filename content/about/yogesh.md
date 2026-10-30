@@ -13,9 +13,9 @@ Motivated Civil Engineer with an M.Sc. in Hydropower Engineering, seeking a PhD 
 
 ## Education
 
-{{< cv title="M.Sc. in Hydropower Engineering" org="Pulchowk Campus, Tribhuvan University, Nepal" date="May 2023 – Present" >}}
+{{< cv title="M.Sc. in Hydropower Engineering" org="Pulchowk Campus, Tribhuvan University, Nepal" date="May 2023 – July 2025" >}}
 **Thesis:** “Optimizing Reservoir Operations on Nepalese Hydropower Systems: A Comparative Study of Metaheuristic Algorithms and Environmental Flow Tradeoffs”
-
+**Final grade:** 89.75%
 **Key courses:** Hydrological Modeling, Hydraulics, Sediment Management, Climate Change Impact Assessment, Structural Design, Project Management
 {{< /cv >}}
 
