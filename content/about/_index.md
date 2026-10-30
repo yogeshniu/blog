@@ -1,5 +1,5 @@
 +++
-title = "About Me"
+title = "About"
 date = "2023-12-30"
 draft = false
 author = "Yogesh Sharma Neupane"
@@ -8,12 +8,6 @@ tags = ["engineering", "hydropower", "web development"]
 image = "/images/profile.jpg"
 slug = "about-yogesh"
 weight = 5
-
-[menu.main]
-  identifier = "about"
-  name = "About Me"
-  url = "/about/"
-  weight = 10
 
 aliases = ["/bio/"]
 

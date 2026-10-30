@@ -1,32 +1,101 @@
 baseURL = "https://yogeshsn.com.np/"
 languageCode = "en-us"
-title = "yogeshsn"
-theme = "hugo-blog-awesome"
+title = "Yogesh SN"
+theme = "PaperMod"
+enableRobotsTXT = true
 
-[menu]
-  [[menu.main]]
-    identifier = "Posts"
-    name = "Posts"
-    url = "/posts/"
-    weight = "10"
+[pagination]
+  pagerSize = 12
 
-  [[menu.main]]
-    identifier = "about"
-    name = "About me"
-    url = "/about/yogesh"
-    weight = "10"
+# JSON output powers the Search page
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
 
-  [[menu.main]]
-    identifier = "References"
-    name = "References"
-    url = "/references/"
-    weight = "20"
+[markup]
+  [markup.highlight]
+    noClasses = false
 
-  [[menu.main]]
-    identifier = "categories"
-    name = "Categories"
-    url = "/categories/"
-    weight = "30"
+# ---------- Menu ----------
+[[menu.main]]
+  identifier = "posts"
+  name = "Posts"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "references"
+  name = "References"
+  url = "/references/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "categories"
+  name = "Categories"
+  url = "/categories/"
+  weight = 30
+
+[[menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/about/yogesh/"
+  weight = 40
+
+[[menu.main]]
+  identifier = "search"
+  name = "Search"
+  url = "/search/"
+  weight = 50
+
+# ---------- Theme settings ----------
+[params]
+  env = "production"
+  author = "Yogesh Sharma Neupane"
+  description = "Civil and hydropower engineer working on reservoir optimization, climate-resilient infrastructure and computational modelling."
+  defaultTheme = "auto"        # follows the visitor's light/dark setting
+  mainSections = ["posts"]
+  DateFormat = "January 2, 2006"
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+  ShowShareButtons = false
+  ShowWordCount = false
+
+  [params.footer]
+    text = "Dream, Discipline, and Dedication"
+
+  # Home page: photo, short intro and buttons.
+  # The image comes from assets/ys.png
+  [params.profileMode]
+    enabled = true
+    title = "Yogesh Sharma Neupane"
+    subtitle = "Civil and hydropower engineer working on reservoir optimization, climate-resilient infrastructure and computational modelling.\n\n*Currently learning metaheuristic optimization and machine learning.*"
+    imageUrl = "ys.png"
+    imageWidth = 150
+    imageHeight = 150
+    imageTitle = "Yogesh Sharma Neupane"
+
+    [[params.profileMode.buttons]]
+      name = "About me"
+      url = "/about/yogesh/"
+
+    [[params.profileMode.buttons]]
+      name = "Posts"
+      url = "/posts/"
+
+    [[params.profileMode.buttons]]
+      name = "References"
+      url = "/references/"
+
+[[params.socialIcons]]
+  name = "email"
+  url = "mailto:yogeshsn1012@gmail.com"
+
+[[params.socialIcons]]
+  name = "linkedin"
+  url = "https://www.linkedin.com/in/yogesh-sn🇳🇵-1926b8184"
 
 [[params.socialIcons]]
   name = "x"
@@ -37,25 +106,5 @@ theme = "hugo-blog-awesome"
   url = "https://www.youtube.com/@palpasky6909/videos"
 
 [[params.socialIcons]]
-  name = "linkedin"
-  url = "https://www.linkedin.com/in/yogesh-sn🇳🇵-1926b8184" 
-
-[[params.socialIcons]]
   name = "instagram"
   url = "https://www.instagram.com/livingonnature"
-
-[params]
-  goToTop = true
-
-# Add the following lines for photo, image, and footer
-
-[params.author]
-  avatar = "ys.png" # Update with the correct path
-  intro = "Yogesh Sharma Neupane"
-  name = "Yogesh SN"
-  description = "Dream, Discipline, and Dedication "
-
-[markup]
-  [markup.highlight]
-    noClasses = false
-    style = "monokai"
