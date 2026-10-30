@@ -9,7 +9,7 @@ ShowToc: true
 
 Motivated Civil Engineer with an M.Sc. in Hydropower Engineering, seeking a PhD to advance research in sustainable development. My work sits at the intersection of civil engineering design, integrated planning, and computational modelling, with a focus on climate-resilient infrastructure and green energy solutions. I am driven by the challenge of translating engineering innovation into real-world impact for water resource management.
 
-**Based in:** Lalitpur, Nepal  ·  **Email:** [yogeshsn1012@gmail.com](mailto:yogeshsn1012@gmail.com)
+**Based in:** Lalitpur, Nepal  ·  **Email:** [yogesh.s.neupane@gmail.com](mailto:yogesh.s.neupane@gmail.com)
 
 ## Education
 
