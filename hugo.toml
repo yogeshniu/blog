@@ -71,7 +71,7 @@ enableRobotsTXT = true
   [params.profileMode]
     enabled = true
     title = "Yogesh Sharma Neupane"
-    subtitle = "Civil and hydropower engineer working on reservoir optimization, climate-resilient infrastructure and computational modelling.\n\n*Currently learning metaheuristic optimization and machine learning.*"
+    subtitle = "Civil and hydropower engineer working on reservoir optimization, climate-resilient infrastructure and computational modelling.\n\n*Currently working as a Hydropower Engineer.*"
     imageUrl = "ys.png"
     imageWidth = 150
     imageHeight = 150
