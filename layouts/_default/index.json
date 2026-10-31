@@ -1,0 +1,8 @@
+{{- /* Slim search index: keeps the Search page fast. Raise the 700 below to search deeper into each page. */ -}}
+{{- $index := slice -}}
+{{- range site.RegularPages -}}
+  {{- if and (not .Params.searchHidden) (ne .Layout `archives`) (ne .Layout `search`) -}}
+    {{- $index = $index | append (dict "title" .Title "content" (.Plain | truncate 700) "permalink" .RelPermalink "summary" (.Summary | plainify | truncate 160) "categories" (delimit (.Params.categories | default slice) " ")) -}}
+  {{- end -}}
+{{- end -}}
+{{- $index | jsonify -}}

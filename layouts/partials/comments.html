@@ -1,0 +1,13 @@
+{{- /* PaperMod calls this partial at the end of every article when params.comments is true.
+       We use it to show "Keep reading" (related pages) instead of a comment box. */ -}}
+{{- $related := site.RegularPages.Related . | first 3 -}}
+{{- with $related }}
+<section class="related">
+  <h2>Keep reading</h2>
+  <ul>
+    {{- range . }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title | strings.TrimSpace }}</a>{{ with .Date }}<span>{{ .Format "Jan 2006" }}</span>{{ end }}</li>
+    {{- end }}
+  </ul>
+</section>
+{{- end }}

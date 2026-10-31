@@ -1,8 +1,9 @@
 +++
-title = ' Understanding Randomness and Hydropower Using Python'
+title = 'Understanding Randomness and Hydropower Using Python'
 date = 2024-05-31T12:30:53+05:45
 categories = ["Engineering","Python"]
 draft = false
+aliases = ["/references/programming/python_simulation_basic/"]
 +++
 
 In this blog, we will explore how randomness and numpy can be used in a practical example related to water resource engineering and hydropower. We'll create a program that simulates the operation of a reservoir and calculates hydropower generation. 

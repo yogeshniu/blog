@@ -1,0 +1,13 @@
+{{- /* Lightweight YouTube embed: shows a thumbnail, loads the real player only when clicked.
+       Works with both  {{< youtube VIDEO_ID >}}  and  {{< youtube id="VIDEO_ID" title="..." start="30" >}}  */ -}}
+{{- $id := or (.Get "id") (.Get 0) -}}
+{{- $title := or (.Get "title") (.Get 1) "YouTube video" -}}
+{{- $start := .Get "start" -}}
+{{- with $id }}
+<div class="yt-lite" data-id="{{ . }}" {{ with $start }}data-start="{{ . }}"{{ end }}>
+  <a class="yt-lite__link" href="https://www.youtube.com/watch?v={{ . }}" target="_blank" rel="noopener" aria-label="Play: {{ $title }}">
+    <img src="https://i.ytimg.com/vi/{{ . }}/hqdefault.jpg" alt="{{ $title }}" loading="lazy" decoding="async" width="480" height="360">
+    <span class="yt-lite__play" aria-hidden="true"></span>
+  </a>
+</div>
+{{- end }}

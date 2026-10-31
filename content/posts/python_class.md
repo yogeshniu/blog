@@ -3,6 +3,7 @@ title = 'Exploring the Use of self in Python with Reservoir Planning'
 date = 2024-05-31T08:02:36+05:45
 categories = ["Engineering","Python"]
 draft = false
+aliases = ["/references/programming/python_class/"]
 +++
 # Exploring the Use of `self` in Python with Reservoir Planning
 

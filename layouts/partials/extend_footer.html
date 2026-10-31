@@ -1,3 +1,38 @@
+{{- /* Reading progress bar on articles */ -}}
+{{- if and .IsPage (not .IsHome) }}
+<div class="read-progress" id="read-progress" aria-hidden="true"></div>
+<script>
+(function () {
+  var bar = document.getElementById('read-progress');
+  if (!bar || !document.querySelector('.post-single')) { if (bar) bar.remove(); return; }
+  var ticking = false;
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, h.scrollTop / max) : 0) + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  update();
+})();
+</script>
+{{- end }}
+{{- /* Click-to-load YouTube player. NOTE: PaperMod caches the footer per page type, so nothing in here may depend on a single page. */ -}}
+{{- if and .IsPage (not .IsHome) }}
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest('.yt-lite__link');
+  if (!link) return;
+  e.preventDefault();
+  var box = link.parentNode, id = box.getAttribute('data-id'), start = box.getAttribute('data-start');
+  var f = document.createElement('iframe');
+  f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0' + (start ? '&start=' + start : '');
+  f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+  f.allowFullscreen = true; f.title = link.getAttribute('aria-label') || 'YouTube video';
+  box.replaceChildren(f); box.classList.add('is-playing');
+});
+</script>
+{{- end }}
 {{- /* Quote of the day on the home page (one quote per day, same list as before) */ -}}
 {{- if .IsHome }}
 <script>

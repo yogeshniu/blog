@@ -3,6 +3,7 @@ title = 'Python Tutorial: Using random and numpy Libraries'
 date = 2024-05-31T09:16:04+05:45
 categories = ["Engineering","Python"]
 draft = false
+aliases = ["/references/programming/python_numpyrand/"]
 +++
 # Python Tutorial: Using `random` and `numpy` Libraries
 

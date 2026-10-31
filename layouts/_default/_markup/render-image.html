@@ -1,0 +1,17 @@
+{{- $dest := .Destination -}}
+{{- $u := urls.Parse $dest -}}
+{{- $src := $dest | safeURL -}}
+{{- $w := "" -}}{{- $h := "" -}}
+{{- if not $u.IsAbs -}}
+  {{- with $.Page.Resources.Get $dest -}}
+    {{- if in (slice "jpeg" "png") .MediaType.SubType -}}
+      {{- $r := . -}}
+      {{- if gt .Width 1000 }}{{ $r = .Resize "1000x webp q82" }}{{ else }}{{ $r = .Resize (printf "%dx webp q82" .Width) }}{{ end -}}
+      {{- $src = $r.RelPermalink -}}{{- $w = $r.Width -}}{{- $h = $r.Height -}}
+    {{- else -}}
+      {{- $src = .RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $img := printf `<img src="%s" alt="%s" loading="lazy" decoding="async"%s%s%s />` $src (.PlainText | htmlEscape) (cond (ne $w "") (printf ` width="%v" height="%v"` $w $h) "") (cond $u.IsAbs ` referrerpolicy="no-referrer"` "") (cond (ne .Title "") (printf ` title="%s"` (.Title | htmlEscape)) "") -}}
+{{- if .Title }}<figure class="md-figure">{{ $img | safeHTML }}<figcaption>{{ .Title }}</figcaption></figure>{{ else }}{{ $img | safeHTML }}{{ end -}}

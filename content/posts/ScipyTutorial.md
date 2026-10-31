@@ -2,6 +2,8 @@
 title = 'Introduction to SciPy and Linear Programming'
 date = 2024-02-10T07:28:44+05:45
 draft = false
+aliases = ["/references/programming/scipytutorial/"]
+categories = ["Engineering","Python"]
 +++
 
 

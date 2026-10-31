@@ -7,9 +7,27 @@ enableRobotsTXT = true
 [pagination]
   pagerSize = 12
 
-# JSON output powers the Search page
+# RSS and the search index are only generated for the home page; every other page is plain HTML.
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+# "Keep reading" suggestions at the end of each article
+[related]
+  includeNewer = true
+  threshold = 60
+  toLower = true
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 80
+  [[related.indices]]
+    name = "date"
+    weight = 10
 
 [markup]
   [markup.highlight]
@@ -37,14 +55,20 @@ enableRobotsTXT = true
 [[menu.main]]
   identifier = "about"
   name = "About"
-  url = "/about/yogesh/"
+  url = "/about/"
+  weight = 50
+
+[[menu.main]]
+  identifier = "archive"
+  name = "Archive"
+  url = "/archives/"
   weight = 40
 
 [[menu.main]]
   identifier = "search"
   name = "Search"
   url = "/search/"
-  weight = 50
+  weight = 60
 
 # ---------- Theme settings ----------
 [params]
@@ -62,24 +86,32 @@ enableRobotsTXT = true
   TocOpen = false
   ShowShareButtons = false
   ShowWordCount = false
+  comments = true              # shows the "Keep reading" list (no comment box) at the end of articles
+  images = ["og-image.png"]    # picture shown when a link is shared (WhatsApp, LinkedIn, ...)
+
+  [params.assets]
+    favicon = "favicon.ico"
+    favicon16x16 = "favicon-16x16.png"
+    favicon32x32 = "favicon-32x32.png"
+    apple_touch_icon = "apple-touch-icon.png"
 
   [params.footer]
     text = "Dream, Discipline, and Dedication"
 
   # Home page: photo, short intro and buttons.
-  # The image comes from assets/ys.png
+  # The image comes from assets/ys.webp
   [params.profileMode]
     enabled = true
     title = "Yogesh Sharma Neupane"
-    subtitle = "Civil and hydropower engineer working on reservoir optimization, climate-resilient infrastructure and computational modelling.\n\n*Currently working as a Hydropower Engineer.*"
-    imageUrl = "ys.png"
-    imageWidth = 150
-    imageHeight = 150
+    subtitle = "Civil and hydropower engineer working on reservoir optimization, climate-resilient infrastructure and computational modelling.\n\n*Currently learning metaheuristic optimization and machine learning.*"
+    imageUrl = "ys.webp"
+    imageWidth = 250
+    imageHeight = 250
     imageTitle = "Yogesh Sharma Neupane"
 
     [[params.profileMode.buttons]]
       name = "About me"
-      url = "/about/yogesh/"
+      url = "/about/"
 
     [[params.profileMode.buttons]]
       name = "Posts"

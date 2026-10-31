@@ -115,3 +115,66 @@ body {
   .profile_inner h1 { font-size: 1.7rem; }
   .cv-date { white-space: normal; }
 }
+
+/* ===== Home: latest posts ===== */
+.main .profile { min-height: 0; padding: 36px 0 8px; }
+.home-latest { margin: 36px 0 12px; }
+.home-latest > h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: .08em; color: var(--secondary); margin: 0 0 14px; }
+.home-more { text-align: right; margin: 6px 4px 0; font-weight: 500; }
+.home-more a { color: var(--accent); }
+
+/* ===== Reading progress bar ===== */
+.read-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 100;
+  background: var(--accent); transform: scaleX(0); transform-origin: 0 50%;
+}
+
+/* ===== Click-to-load YouTube ===== */
+.yt-lite { position: relative; aspect-ratio: 16 / 9; width: 100%; margin: 1.4em 0; background: #000; border-radius: 12px; overflow: hidden; }
+.yt-lite__link { display: block; width: 100%; height: 100%; border: 0 !important; }
+.yt-lite img { width: 100%; height: 100%; object-fit: cover; margin: 0; border-radius: 0; opacity: .92; transition: opacity .2s; }
+.yt-lite:hover img { opacity: 1; }
+.yt-lite__play {
+  position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; transform: translate(-50%, -50%);
+  background: rgba(15,118,110,.95); border-radius: 14px;
+}
+.yt-lite__play::before {
+  content: ""; position: absolute; left: 27px; top: 14px;
+  border-style: solid; border-width: 10px 0 10px 18px; border-color: transparent transparent transparent #fff;
+}
+.yt-lite iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ===== Figures with captions ===== */
+.md-figure { margin: 1.4em 0; text-align: center; }
+.md-figure img { margin: 0 auto; }
+.md-figure figcaption { font-size: .88rem; color: var(--secondary); margin-top: 8px; }
+
+/* ===== Related ("Keep reading") ===== */
+.related { margin-top: 36px; padding: 18px 20px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--entry); }
+.related h2 { font-size: 1rem; margin: 0 0 8px; text-transform: uppercase; letter-spacing: .08em; color: var(--secondary); }
+.related ul { list-style: none; margin: 0; padding: 0; }
+.related li { display: flex; justify-content: space-between; gap: 16px; padding: 7px 0; border-bottom: 1px solid var(--border); }
+.related li:last-child { border-bottom: 0; }
+.related a { color: var(--primary); font-weight: 500; }
+.related a:hover { color: var(--accent); }
+.related span { color: var(--secondary); font-size: .85rem; white-space: nowrap; }
+
+/* ===== Print / Save as PDF (works well for the About page) ===== */
+.print-row { margin: 0 0 1.2rem; }
+.print-btn {
+  font: inherit; font-size: .9rem; cursor: pointer; padding: 6px 16px; border-radius: 999px;
+  border: 1px solid var(--accent); background: transparent; color: var(--accent);
+}
+.print-btn:hover { background: var(--accent); color: var(--theme); }
+@media print {
+  .header, .footer, .top-link, .toc, .breadcrumbs, .print-row, .read-progress, .related, .post-nav, .post-tags, .share-buttons { display: none !important; }
+  body { background: #fff !important; color: #000 !important; font-size: 11pt; line-height: 1.45; }
+  .main { max-width: none; margin: 0; padding: 0; }
+  .post-content h2 { margin-top: 1.1rem; }
+  .cv-entry { break-inside: avoid; }
+  .post-content a { color: #000; border: 0; }
+  :root { --theme: #fff; --entry: #fff; --primary: #000; --secondary: #444; --border: #ccc; --accent: #0f766e; }
+}
+
+/* if a video thumbnail can't load (offline), don't show raw alt text over the player */
+.yt-lite img { font-size: 0; color: transparent; }
