@@ -1,9 +1,0 @@
-{{- /* CV entry. Parameters: title, org, date. Anything written between the opening and closing tag becomes the body. */ -}}
-<div class="cv-entry">
-  <div class="cv-head">
-    <span class="cv-title">{{ .Get "title" }}</span>
-    {{- with .Get "date" }}<span class="cv-date">{{ . }}</span>{{ end }}
-  </div>
-  {{- with .Get "org" }}<div class="cv-org">{{ . }}</div>{{ end }}
-  {{- with .Inner }}<div class="cv-body">{{ . | markdownify }}</div>{{ end }}
-</div>

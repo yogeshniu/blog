@@ -1,0 +1,182 @@
+{{- define "main" }}
+{{- $d := site.Data.cv -}}
+{{- $css := resources.Get "css/about.css" | resources.Minify | resources.Fingerprint -}}
+{{- $js := resources.Get "js/about.js" | resources.Minify | resources.Fingerprint -}}
+{{- $journals := where $d.publications "type" "journal" -}}
+{{- $published := where $journals "status" "Published" -}}
+{{- $accepted := where $journals "status" "Accepted" -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+
+<div class="about">
+
+  <!-- ============ HERO ============ -->
+  <section class="a-hero" aria-label="Introduction">
+    <div class="a-hero__photo">
+      {{- with resources.Get "ys.webp" }}{{ $p := .Resize "300x webp q85" }}
+      <img src="{{ $p.RelPermalink }}" width="{{ $p.Width }}" height="{{ $p.Height }}" alt="{{ $d.name }}">
+      {{- end }}
+    </div>
+    <div class="a-hero__body">
+      <p class="a-eyebrow"><span class="a-dot"></span>{{ $d.status }}</p>
+      <h1>{{ $d.name }}</h1>
+      <p class="a-headline">{{ $d.headline }} <span>· {{ $d.location }}</span></p>
+      <p class="a-intro">{{ $d.intro }}</p>
+      <ul class="a-focus" aria-label="Focus areas">
+        {{- range $d.focus }}<li>{{ . }}</li>{{ end }}
+      </ul>
+      <div class="a-actions">
+        <a class="a-btn a-btn--primary" href="mailto:{{ $d.email }}">Email me</a>
+        <button type="button" class="a-btn" data-copy="{{ $d.email }}" data-copied="Copied!">Copy email</button>
+        <a class="a-btn" href="{{ $d.linkedin }}" rel="noopener" target="_blank">LinkedIn</a>
+        <button type="button" class="a-btn" onclick="window.print()">Print / save as PDF</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NUMBERS ============ -->
+  <section class="a-stats" aria-label="At a glance">
+    <div class="a-stat"><strong data-count="{{ len $published }}">{{ len $published }}</strong><span>Published papers</span></div>
+    <div class="a-stat"><strong data-count="{{ len $accepted }}">{{ len $accepted }}</strong><span>Accepted paper</span></div>
+    <div class="a-stat"><strong data-count="{{ len $d.posters }}">{{ len $d.posters }}</strong><span>Conference posters</span></div>
+    <div class="a-stat"><strong data-count="{{ len $d.certificates }}">{{ len $d.certificates }}</strong><span>Certificates</span></div>
+  </section>
+
+  <!-- ============ SECTION NAV ============ -->
+  <nav class="a-nav" aria-label="Sections">
+    <a href="#journey">Journey</a>
+    <a href="#publications">Publications</a>
+    <a href="#skills">Skills</a>
+    <a href="#awards">Awards</a>
+    <a href="#certificates">Certificates</a>
+  </nav>
+
+  <!-- ============ JOURNEY (tabs) ============ -->
+  <section id="journey" class="a-section">
+    <h2>Journey</h2>
+    <div class="a-tabs" role="tablist" aria-label="Experience or education">
+      <button type="button" role="tab" id="tab-exp" aria-controls="panel-exp" aria-selected="true" data-tab="exp">Experience</button>
+      <button type="button" role="tab" id="tab-edu" aria-controls="panel-edu" aria-selected="false" data-tab="edu">Education</button>
+    </div>
+
+    <div class="a-panel" id="panel-exp" role="tabpanel" aria-labelledby="tab-exp" data-panel="exp">
+      <ol class="a-timeline">
+        {{- range $d.experience }}
+        <li class="a-tl{{ if .current }} is-current{{ end }}">
+          <div class="a-tl__head">
+            <h3>{{ .title }}</h3>
+            <span class="a-date">{{ .date }}{{ if .current }} <em>now</em>{{ end }}</span>
+          </div>
+          <p class="a-org">{{ .org }}</p>
+          {{- with .summary }}<p>{{ . }}</p>{{ end }}
+          {{- with .points }}
+          <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ol>
+    </div>
+
+    <div class="a-panel" id="panel-edu" role="tabpanel" aria-labelledby="tab-edu" data-panel="edu">
+      <ol class="a-timeline">
+        {{- range $d.education }}
+        <li class="a-tl">
+          <div class="a-tl__head">
+            <h3>{{ .title }}</h3>
+            <span class="a-date">{{ .date }}</span>
+          </div>
+          <p class="a-org">{{ .org }}{{ with .grade }} <span class="a-grade">Final grade {{ . }}</span>{{ end }}</p>
+          {{- if or .thesis .courses }}
+          <details>
+            <summary>{{ if .thesis }}Thesis and key courses{{ else }}Key courses{{ end }}</summary>
+            {{- with .thesis }}<p><strong>Thesis:</strong> “{{ . }}”</p>{{ end }}
+            {{- with .courses }}<p><strong>Key courses:</strong> {{ . }}</p>{{ end }}
+          </details>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ PUBLICATIONS (filter) ============ -->
+  <section id="publications" class="a-section">
+    <h2>Publications and presentations</h2>
+    <div class="a-chips" role="group" aria-label="Filter publications">
+      <button type="button" class="is-on" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="journal" aria-pressed="false">Journal papers</button>
+      <button type="button" data-filter="conference" aria-pressed="false">Conference posters</button>
+      <button type="button" data-filter="thesis" aria-pressed="false">Thesis</button>
+    </div>
+    <ul class="a-pubs">
+      {{- range $d.publications }}
+      <li class="a-pub" data-type="{{ .type }}">
+        <div class="a-badges">
+          <span class="a-badge a-badge--{{ lower .status }}">{{ .status }}</span>
+          {{- with .tier }}<span class="a-badge a-badge--tier">{{ . }} journal</span>{{ end }}
+        </div>
+        <h3>{{ .title }}</h3>
+        <p class="a-venue">{{ .venue }}{{ with .publisher }} · {{ . }}{{ end }}</p>
+        {{- if .doi }}
+        <p class="a-links">
+          <a href="https://doi.org/{{ .doi }}" rel="noopener" target="_blank">DOI: {{ .doi }}</a>
+          <button type="button" data-copy="{{ .title }}. {{ .venue }}{{ with .publisher }}, {{ . }}{{ end }}. https://doi.org/{{ .doi }}" data-copied="Copied!">Copy citation</button>
+        </p>
+        {{- end }}
+      </li>
+      {{- end }}
+      {{- range $d.posters }}
+      <li class="a-pub" data-type="conference">
+        <div class="a-badges"><span class="a-badge a-badge--poster">Poster · {{ .date }}</span></div>
+        <h3>{{ .title }}</h3>
+        {{- with .venue }}<p class="a-venue">{{ . }}</p>{{ end }}
+        <p class="a-authors">{{ replace .authors "Yogesh Sharma Neupane" "<strong>Yogesh Sharma Neupane</strong>" | safeHTML }}</p>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="a-section">
+    <h2>Skills</h2>
+    <div class="a-skills">
+      {{- range $d.skills }}
+      <div class="a-skill">
+        <h3>{{ .group }}</h3>
+        <ul>{{ range .items }}<li>{{ . }}</li>{{ end }}</ul>
+      </div>
+      {{- end }}
+    </div>
+    <h3 class="a-sub">Strengths</h3>
+    <ul class="a-strengths">
+      {{- range $d.strengths }}<li>{{ . }}</li>{{ end }}
+    </ul>
+  </section>
+
+  <!-- ============ AWARDS ============ -->
+  <section id="awards" class="a-section">
+    <h2>Awards and scholarships</h2>
+    <ul class="a-awards">
+      {{- range $d.awards }}
+      <li><span class="a-year">{{ .year }}</span><span>{{ .text }}</span></li>
+      {{- end }}
+    </ul>
+  </section>
+
+  <!-- ============ CERTIFICATES (search) ============ -->
+  <section id="certificates" class="a-section">
+    <h2>Certificates</h2>
+    <div class="a-find">
+      <input type="search" id="cert-filter" placeholder="Search certificates (for example: HEC, 2021, CESS)" aria-label="Search certificates" autocomplete="off">
+      <span id="cert-count" aria-live="polite">{{ len $d.certificates }} of {{ len $d.certificates }}</span>
+    </div>
+    <ul class="a-certs" id="cert-list">
+      {{- range $d.certificates }}
+      <li class="a-cert"><span class="a-year">{{ .year }}</span><span>{{ .text }}</span></li>
+      {{- end }}
+    </ul>
+    <p class="a-empty" id="cert-empty" hidden>No certificates match that search.</p>
+  </section>
+
+</div>
+<script src="{{ $js.RelPermalink }}" defer></script>
+{{- end }}

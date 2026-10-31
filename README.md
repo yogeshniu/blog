@@ -6,9 +6,9 @@ Personal site: <https://yogeshsn.com.np>. Built with [Hugo](https://gohugo.io) a
 | What | Where |
 |---|---|
 | Site settings, menu, home-page intro | `hugo.toml` |
-| Posts | `content/posts/` |
-| Reference notes | `content/references/` |
-| About / CV page | `content/about.md` |
+| Blog posts | `content/blog/` |
+| Notes (study notes, tutorials, resources) | `content/notes/` |
+| About page text (CV) | `data/cv.yaml` (edit this one) |
 | Profile photo | `assets/ys.webp` |
 | Images used inside posts | next to the post (`content/posts/<name>/index.md` + image) or `static/img/` |
 | Colours, fonts, spacing | `assets/css/extended/custom.css` |

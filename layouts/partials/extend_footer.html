@@ -136,14 +136,23 @@ document.addEventListener('click', function (e) {
   "Your worth consists in what you are and not in what you have - Thomas Edison",
   "Don't be pushed around by the fears in your mind. Be led by the dreams in your heart - Roy T. Bennett"
 ];
-  var box = document.querySelector('.profile_inner');
+  var box = document.querySelector('.home-chips') || document.querySelector('.profile_inner');
   if (!box) return;
   var now = new Date();
   var day = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
   var p = document.createElement('p');
   p.className = 'daily-quote';
   p.textContent = quotes[day % quotes.length];
-  box.appendChild(p);
+  if (box.classList.contains('home-chips')) box.insertAdjacentElement('afterend', p); else box.appendChild(p);
+})();
+</script>
+{{- end }}
+{{- /* Old addresses: /references/... became /notes/... and /posts/... became /blog/... Most have their own redirect page; this catches the rest. */ -}}
+{{- if eq .Kind "404" }}
+<script>
+(function () {
+  var p = location.pathname, n = p.replace(/^\/references\//, '/notes/').replace(/^\/posts\//, '/blog/');
+  if (n !== p) location.replace(n + location.search + location.hash);
 })();
 </script>
 {{- end }}

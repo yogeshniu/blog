@@ -1,0 +1,159 @@
+# Your CV. Edit the text here and the About page and home page update by themselves.
+# (Dates and wording are shown exactly as written.)
+
+name: Yogesh Sharma Neupane
+headline: Civil and Hydropower Engineer
+location: Lalitpur, Nepal
+email: yogeshsn1012@gmail.com
+linkedin: "https://www.linkedin.com/in/yogesh-sn🇳🇵-1926b8184"
+status: Seeking a PhD in sustainable development
+
+intro: >-
+  Motivated Civil Engineer with an M.Sc. in Hydropower Engineering, seeking a PhD to advance research in sustainable development.
+  My work sits at the intersection of civil engineering design, integrated planning, and computational modelling, with a focus on
+  climate-resilient infrastructure and green energy solutions. I am driven by the challenge of translating engineering innovation
+  into real-world impact for water resource management.
+
+focus:
+  - Civil engineering design
+  - Integrated planning
+  - Computational modelling
+  - Climate-resilient infrastructure
+  - Green energy solutions
+
+education:
+  - title: M.Sc. in Hydropower Engineering
+    short: M.Sc. Hydropower Engineering
+    org: Pulchowk Campus, Tribhuvan University, Nepal
+    date: May 2023 – Present
+    thesis: "Optimizing Reservoir Operations on Nepalese Hydropower Systems: A Comparative Study of Metaheuristic Algorithms and Environmental Flow Tradeoffs"
+    courses: Hydrological Modeling, Hydraulics, Sediment Management, Climate Change Impact Assessment, Structural Design, Project Management
+  - title: BE in Civil Engineering
+    org: Pulchowk Campus, Tribhuvan University, Nepal
+    date: 2017 – 2022
+    grade: 79.67%
+    courses: Structural Analysis, Fluid Dynamics, Transportation Engineering, Geotechnical Engineering, Construction Management, Engineering Economics
+  - title: High School (10+2), Natural Sciences
+    org: Tilottama Campus, Yogikuti, Nepal
+    date: 2015 – 2017
+    grade: 82.60%
+
+experience:
+  - title: Hydropower and Hydraulic Engineer
+    org: Hydro Tunnelling and Research Pvt. Ltd., Nepal
+    date: July 2025 – Present
+    current: true
+    summary: >-
+      Currently, I work across diverse fields, including civil structures, tunnelling, integrated planning, transportation,
+      automating design processes through programming, and water systems. This experience has given me a granular understanding
+      of how large-scale infrastructure and geospatial planning intersect with community needs.
+  - title: Site Engineer / Surveyor
+    org: Engineering and Planning Solution Consultant (P) Ltd., Nepal
+    date: March 2023 – May 2023
+    points:
+      - Conducted topographic surveys for water supply projects using Total Station.
+      - Created structural and hydraulic maps using AutoCAD and ArcGIS.
+      - Performed geotechnical assessments and coordinated social surveys.
+  - title: Civil Engineer
+    org: Reef Engineering Consultant Pvt. Ltd., Nepal
+    date: August 2022 – January 2023
+    points:
+      - Conducted structural design and analysis for infrastructure projects.
+      - Prepared Bills of Quantities (BOQ) and cost estimates.
+      - Performed site visits and inspections to ensure project compliance.
+  - title: Survey Enumerator
+    org: Water and Energy Commission Secretariat, Government of Nepal & CMS-ERMC, Nepal
+    date: May 2022 – June 2022
+    points:
+      - Surveyed energy consumption patterns and helped prepare socio-economic reports.
+      - Contributed to regional development planning through data collection.
+
+publications:
+  - type: journal
+    status: Published
+    tier: Q1
+    featured: true
+    title: Optimizing Environmental Flow Trade-offs for Sustainable Hydropower in a Himalayan Reservoir, Dudhkoshi Storage Hydroelectric Project
+    venue: Energy Nexus
+    publisher: Elsevier
+    doi: 10.1016/j.nexus.2026.100784
+  - type: journal
+    status: Published
+    tier: Q3
+    featured: true
+    title: "Optimization of storage hydropower operation using metaheuristic algorithms: a comparative study of the Budhi Gandaki Hydropower Project"
+    venue: Water Practice & Technology
+    publisher: IWA Publishing
+    doi: 10.2166/wpt.2026.187
+  - type: thesis
+    status: Thesis
+    title: "Optimizing Reservoir Operations on Nepalese Hydropower Systems: A Comparative Study of Metaheuristic Algorithms and Environmental Flow Tradeoffs"
+    venue: M.Sc. thesis, Pulchowk Campus, Tribhuvan University
+  - type: journal
+    status: Accepted
+    title: "Optimization of Storage Hydropower Project using Moth Flame Optimization: A Study of Dudhkoshi Storage Hydropower Project"
+    venue: Nepal Journal of Civil Engineering
+  - type: journal
+    status: Published
+    title: "Assessing SWAT Model Applicability in Medium-Sized River Basins of Nepal: A Case Study of East Rapti and Kankai River Basins"
+    venue: Journal of Advanced College of Engineering and Management
+
+posters:
+  - date: December 2025
+    title: Optimizing Reservoir Operation Under Changing Climate in the Central Himalayas (H23T-1509)
+    venue: AGU Annual Meeting, New Orleans, USA
+    authors: Rupesh Baniya, Yogesh Sharma Neupane, Rocky Talchabhadel, Sanjib Sharma, Jeeban Panthi, Ganesh R. Ghimire, Sunil Bista, Rajaram Prajapati, Bhesh Raj Thapa
+  - date: July 2026
+    title: "Assessing Greenhouse Gas Fluxes in Himalayan Reservoirs: Integrating Regional Parameters and Climate Change Scenarios"
+    authors: Rupesh Baniya, Sanjib Sharma, Yogesh Sharma Neupane, Ram Krishna Regmi, Prithvi Dhwoj Khadka
+
+skills:
+  - group: Modelling & Analysis
+    items: [Ansys, HEC-HMS, HEC-RAS, HEC-ResSim, SWAT, RESCON 2, SAP]
+  - group: Design & Mapping
+    items: [Rhino, AutoCAD, Civil 3D, ArcGIS, QGIS]
+  - group: Programming
+    items: [Python, C, R, PHP, JavaScript]
+  - group: Documentation
+    items: [LaTeX, MS Office, MS Project]
+
+strengths:
+  - Analytical problem-solving and machine learning applications
+  - Leadership, public speaking, and team collaboration
+  - Disciplined, quick learner, and adaptable
+
+awards:
+  - year: 2023–2024
+    text: MSc Fellowship Tenure (1 year), Kathmandu University, partnered with NTNU Norway and SINTEF Energy Research.
+  - year: "2019"
+    text: Gold Medal, Inter College Civil Engineering Model Competition, Kathmandu University.
+  - year: "2016"
+    text: Merit-Based Scholarship (Grade 11 and 12), Tilottama Campus.
+  - year: "2016"
+    text: Distinction in the SLC Exam, Everest English Boarding Higher Secondary School.
+  - year: "2013"
+    text: Mathematical Intelligence Test Award, Everest English Boarding Higher Secondary School.
+
+certificates:
+  - year: "2024"
+    text: Training on RESCON 2, Nikolous Efthymiou, Sediment Management Specialist, organised by World Bank.
+  - year: "2024"
+    text: Completion of Pilot Academic Course in WEFE NEXUS, CWRS, in coordination with IWMI and Nexus Gains.
+  - year: "2024"
+    text: Participation in the HEC Software Package Training, Pulchowk Campus, Nepal.
+  - year: "2023"
+    text: Appreciation as Speaker, CESS Nepal, Pulchowk Campus, Nepal.
+  - year: "2022"
+    text: Completion of Virtual Internship, JOHN HOLLAND.
+  - year: "2021"
+    text: Recognition for Organising Panel Discussion, CESS Nepal, Pulchowk Campus, Nepal.
+  - year: "2021"
+    text: Appreciation as Event Manager, CESS Nepal, Pulchowk Campus, Nepal.
+  - year: "2021"
+    text: Participation in the Django Workshop, PDSC, Nepal.
+  - year: "2021"
+    text: Training (ETABS), Pulchowk Campus, Nepal.
+  - year: "2020"
+    text: Participation as a Competitor, Hult Prize.
+  - year: "2019"
+    text: Appreciation as Volunteer Leader, CESS Nepal, Pulchowk Campus, Nepal.

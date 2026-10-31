@@ -57,6 +57,28 @@
     {{- end}}
 </div>
 
+{{- /* Credentials and selected publications, read from data/cv.yaml */ -}}
+{{- $cv := site.Data.cv -}}
+{{- $pub := where (where $cv.publications "type" "journal") "status" "Published" -}}
+<ul class="home-chips" aria-label="At a glance">
+  <li>{{ (index $cv.education 0).short }}</li>
+  <li>{{ len $pub }} published papers</li>
+  <li>{{ len $cv.posters }} conference posters</li>
+  {{- with index $cv.experience 0 }}<li>{{ .title }}</li>{{ end }}
+</ul>
+{{- with where $cv.publications "featured" true }}
+<section class="home-pubs">
+  <h2>Selected publications</h2>
+  {{- range . }}
+  <a class="pub-card" href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener">
+    <span class="pub-card__meta">{{ .venue }}{{ with .tier }} · {{ . }} journal{{ end }}</span>
+    <span class="pub-card__title">{{ .title }}</span>
+  </a>
+  {{- end }}
+  <p class="home-more"><a href="{{ "about/#publications" | relURL }}">All publications &rarr;</a></p>
+</section>
+{{- end }}
+
 {{- /* Latest posts below the intro */ -}}
 {{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections -}}
 {{- with first 3 $posts.ByDate.Reverse }}

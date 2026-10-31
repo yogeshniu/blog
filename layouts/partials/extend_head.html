@@ -14,3 +14,9 @@
       ]
     });"></script>
 {{- end }}
+{{- if .IsHome }}
+{{- $cv := site.Data.cv }}
+<script type="application/ld+json">
+{{ dict "@context" "https://schema.org" "@type" "Person" "name" $cv.name "url" site.Home.Permalink "jobTitle" (index $cv.experience 0).title "worksFor" (dict "@type" "Organization" "name" (index $cv.experience 0).org) "alumniOf" (dict "@type" "CollegeOrUniversity" "name" (index $cv.education 0).org) "email" $cv.email "address" (dict "@type" "PostalAddress" "addressLocality" "Lalitpur" "addressCountry" "NP") "sameAs" (slice $cv.linkedin "https://x.com/yogesh__sn" "https://www.youtube.com/@palpasky6909" "https://www.instagram.com/livingonnature") | jsonify (dict "noHTMLEscape" true) | safeJS }}
+</script>
+{{- end }}

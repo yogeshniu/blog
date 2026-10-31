@@ -35,15 +35,15 @@ enableRobotsTXT = true
 
 # ---------- Menu ----------
 [[menu.main]]
-  identifier = "posts"
-  name = "Posts"
-  url = "/posts/"
+  identifier = "blog"
+  name = "Blog"
+  url = "/blog/"
   weight = 10
 
 [[menu.main]]
-  identifier = "references"
-  name = "References"
-  url = "/references/"
+  identifier = "notes"
+  name = "Notes"
+  url = "/notes/"
   weight = 20
 
 [[menu.main]]
@@ -76,7 +76,7 @@ enableRobotsTXT = true
   author = "Yogesh Sharma Neupane"
   description = "Civil and hydropower engineer working on reservoir optimization, climate-resilient infrastructure and computational modelling."
   defaultTheme = "auto"        # follows the visitor's light/dark setting
-  mainSections = ["posts"]
+  mainSections = ["blog"]
   DateFormat = "January 2, 2006"
   ShowReadingTime = true
   ShowPostNavLinks = true
@@ -114,12 +114,12 @@ enableRobotsTXT = true
       url = "/about/"
 
     [[params.profileMode.buttons]]
-      name = "Posts"
-      url = "/posts/"
+      name = "Blog"
+      url = "/blog/"
 
     [[params.profileMode.buttons]]
-      name = "References"
-      url = "/references/"
+      name = "Notes"
+      url = "/notes/"
 
 [[params.socialIcons]]
   name = "email"
