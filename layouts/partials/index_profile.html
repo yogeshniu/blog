@@ -1,3 +1,11 @@
+<div class="home-ridge" aria-hidden="true">
+  <svg viewBox="0 0 1000 130" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" focusable="false">
+    <circle class="sun" cx="850" cy="36" r="15"/>
+    <path class="r1" d="M0 130V78L70 52 120 70 200 24 260 60 330 38 400 74 470 18 540 62 610 40 690 80 760 46 830 72 900 36 1000 66V130Z"/>
+    <path class="r2" d="M0 130V96L90 74 150 92 240 56 310 86 390 62 470 98 560 70 640 96 730 64 820 94 910 72 1000 90V130Z"/>
+    <path class="r3" d="M0 130V112L110 100 200 116 300 98 420 118 540 104 660 119 780 102 900 117 1000 106V130Z"/>
+  </svg>
+</div>
 <div class="profile">
     {{- with site.Params.profileMode }}
     <div class="profile_inner">
@@ -30,6 +38,7 @@
             height="{{ .imageHeight | default 150 }}" width="{{ .imageWidth | default 150 }}" />
         {{- end }}
         {{- end }}
+        <p class="greeting"><span lang="ne">नमस्ते</span> Namaste</p>
         <h1>{{ .title | default site.Title | markdownify }}</h1>
         <span>{{ .subtitle | markdownify }}</span>
         {{- partial "social_icons.html" -}}
@@ -66,6 +75,7 @@
   <li>{{ len $cv.posters }} conference posters</li>
   {{- with index $cv.experience 0 }}<li>{{ .title }}</li>{{ end }}
 </ul>
+<p class="motto"><span lang="ne">दृढ संकल्प</span><i>·</i>Dream<i>·</i>Discipline<i>·</i>Dedication</p>
 {{- with where $cv.publications "featured" true }}
 <section class="home-pubs">
   <h2>Selected publications</h2>

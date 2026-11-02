@@ -1,0 +1,16 @@
+{{- define "main" }}
+{{- $name := .Params.tool -}}
+{{- $css := resources.Get "css/tools.css" | resources.Minify | resources.Fingerprint -}}
+{{- $js := slice (resources.Get "js/tools/common.js") (resources.Get (printf "js/tools/%s.js" $name)) | resources.Concat (printf "js/tool-%s.js" $name) | resources.Minify | resources.Fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}<div class="post-description">{{ . }}</div>{{ end }}
+</header>
+<div id="tool-root" class="tool" data-tool="{{ $name }}">
+  <noscript><p>This tool needs JavaScript. Please turn it on in your browser.</p></noscript>
+</div>
+{{- with .Content }}<div class="post-content tool-text">{{ . }}</div>{{ end }}
+<p class="tool-back"><a href="{{ "tools/" | relURL }}">&larr; All tools</a></p>
+<script src="{{ $js.RelPermalink }}" defer></script>
+{{- end }}

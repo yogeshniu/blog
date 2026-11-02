@@ -1,15 +1,54 @@
-/* ===== Custom look: clean, modern, teal accent ===== */
+/* ===== Look and feel: Himalayan blue and Nepali crimson ===== */
 :root {
-  --accent: #0f766e;
-  --accent-soft: rgba(15, 118, 110, 0.08);
+  --accent: #b3122e;                       /* crimson */
+  --accent-soft: rgba(179, 18, 46, 0.08);
+  --accent2: #0b3a75;                      /* Himalayan blue */
+  --accent2-soft: rgba(11, 58, 117, 0.08);
+  --on-accent: #ffffff;                    /* text on crimson buttons */
   --main-width: 780px;
-  --nav-width: 780px;   /* header lines up with the content column */
-  --radius: 12px;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --nav-width: 780px;                      /* header lines up with the content column */
+  --radius: 14px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Devanagari", "Nirmala UI", Mangal, sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Noto Serif", "Noto Serif Devanagari", serif;
+
+  /* paper-white page, warm greys */
+  --theme: #faf6ee;
+  --entry: #ffffff;
+  --primary: #1c1b1f;
+  --secondary: #5c5850;
+  --tertiary: #ddd5c6;
+  --content: #26252a;
+  --code-block-bg: #1b2330;
+  --code-bg: #f0e8da;
+  --border: #e7dfd0;
 }
 .dark {
-  --accent: #5eead4;
-  --accent-soft: rgba(94, 234, 212, 0.08);
+  /* night sky over the mountains */
+  --accent: #ff7b8f;
+  --accent-soft: rgba(255, 123, 143, 0.11);
+  --accent2: #8ab4ff;
+  --accent2-soft: rgba(138, 180, 255, 0.1);
+  --on-accent: #2a0710;
+  --theme: #0c1420;
+  --entry: #142033;
+  --primary: #ebe8e1;
+  --secondary: #a3acba;
+  --tertiary: #3a4a63;
+  --content: #d9d6cf;
+  --code-block-bg: #09101a;
+  --code-bg: #1b2a40;
+  --border: #243550;
+}
+
+/* Dhaka-pattern ribbon along the very top of every page */
+body::before {
+  content: ""; display: block; height: 7px; width: 100%;
+  background:
+    linear-gradient(135deg, var(--accent) 25%, transparent 25%) -7px 0 / 14px 7px,
+    linear-gradient(225deg, var(--accent) 25%, transparent 25%) -7px 0 / 14px 7px,
+    linear-gradient(315deg, var(--accent2) 25%, transparent 25%) 0 0 / 14px 7px,
+    linear-gradient(45deg, var(--accent2) 25%, transparent 25%) 0 0 / 14px 7px;
+  background-color: var(--theme);
 }
 
 body {
@@ -34,6 +73,7 @@ body {
 .post-content a:hover { border-bottom-color: var(--accent); }
 
 /* Headings */
+h1, h2, .post-title, .page-header h1, .profile_inner h1 { font-family: var(--font-display); }
 .post-content h2, .post-content h3 { letter-spacing: -0.01em; }
 .post-title { letter-spacing: -0.02em; }
 
@@ -55,11 +95,10 @@ body {
 .profile_inner > span em { color: var(--accent); font-style: normal; font-weight: 500; }
 .buttons { gap: 10px; margin-top: 8px; max-width: 100%; }
 .button {
-  background: var(--accent); color: var(--theme);
+  background: var(--accent); color: var(--on-accent);
   border-radius: 999px; padding: 0 22px; height: 42px; line-height: 42px; font-weight: 600;
   transition: transform .15s ease, opacity .15s ease;
 }
-.dark .button { color: #06201d; }
 .button:hover { transform: translateY(-2px); opacity: .92; }
 .button:active { transform: none; }
 .social-icons a svg { height: 22px; width: 22px; }
@@ -117,7 +156,6 @@ body {
 }
 
 /* ===== Home: latest posts ===== */
-.main .profile { min-height: 0; padding: 36px 0 8px; }
 .home-latest { margin: 36px 0 12px; }
 .home-latest > h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: .08em; color: var(--secondary); margin: 0 0 14px; }
 .home-more { text-align: right; margin: 6px 4px 0; font-weight: 500; }
@@ -136,7 +174,7 @@ body {
 .yt-lite:hover img { opacity: 1; }
 .yt-lite__play {
   position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; transform: translate(-50%, -50%);
-  background: rgba(15,118,110,.95); border-radius: 14px;
+  background: rgba(179,18,46,.95); border-radius: 14px;
 }
 .yt-lite__play::before {
   content: ""; position: absolute; left: 27px; top: 14px;
@@ -165,7 +203,7 @@ body {
   font: inherit; font-size: .9rem; cursor: pointer; padding: 6px 16px; border-radius: 999px;
   border: 1px solid var(--accent); background: transparent; color: var(--accent);
 }
-.print-btn:hover { background: var(--accent); color: var(--theme); }
+.print-btn:hover { background: var(--accent); color: var(--on-accent); }
 @media print {
   .header, .footer, .top-link, .toc, .breadcrumbs, .print-row, .read-progress, .related, .post-nav, .post-tags, .share-buttons { display: none !important; }
   body { background: #fff !important; color: #000 !important; font-size: 11pt; line-height: 1.45; }
@@ -173,7 +211,7 @@ body {
   .post-content h2 { margin-top: 1.1rem; }
   .cv-entry { break-inside: avoid; }
   .post-content a { color: #000; border: 0; }
-  :root { --theme: #fff; --entry: #fff; --primary: #000; --secondary: #444; --border: #ccc; --accent: #0f766e; }
+  :root { --theme: #fff; --entry: #fff; --primary: #000; --secondary: #444; --border: #ccc; --accent: #b3122e; }
 }
 
 /* if a video thumbnail can't load (offline), don't show raw alt text over the player */
@@ -217,3 +255,23 @@ body:has(.about) { --nav-width: 980px; }
   #menu a { font-size: .95rem; }
   .nav { flex-wrap: wrap; }
 }
+
+/* ===== Home: Himalayan ridge, greeting and motto ===== */
+html, body { overflow-x: clip; }
+.home-ridge {
+  height: 132px; margin: 6px 0 -78px; border-radius: 20px 20px 0 0; overflow: hidden;
+  background: linear-gradient(180deg, var(--accent2-soft), transparent 85%);
+}
+.home-ridge svg { width: 100%; height: 100%; display: block; -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%); mask-image: linear-gradient(180deg, #000 55%, transparent 100%); }
+.home-ridge .sun { fill: var(--accent); opacity: .9; }
+.home-ridge .r1 { fill: var(--accent2); opacity: .16; }
+.home-ridge .r2 { fill: var(--accent); opacity: .2; }
+.home-ridge .r3 { fill: var(--accent2); opacity: .42; }
+.main .profile { min-height: 0; padding-top: 0; position: relative; z-index: 1; }
+.profile_inner .greeting { margin: 12px 0 0; font-size: 1.05rem; color: var(--accent); font-weight: 600; letter-spacing: .02em; }
+.profile_inner .greeting span { font-size: 1.2rem; margin-right: 6px; }
+.profile_inner h1 { margin-top: 4px; }
+.motto { margin: 16px 0 0; text-align: center; font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: var(--secondary); font-weight: 600; }
+.motto span { text-transform: none; letter-spacing: .04em; font-size: 1rem; color: var(--accent); font-weight: 700; }
+.motto i { font-style: normal; margin: 0 10px; color: var(--accent2); opacity: .7; }
+.dark .home-ridge .r3 { opacity: .55; }

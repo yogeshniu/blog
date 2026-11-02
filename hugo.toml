@@ -47,9 +47,9 @@ enableRobotsTXT = true
   weight = 20
 
 [[menu.main]]
-  identifier = "categories"
-  name = "Categories"
-  url = "/categories/"
+  identifier = "tools"
+  name = "Tools"
+  url = "/tools/"
   weight = 30
 
 [[menu.main]]
@@ -96,7 +96,7 @@ enableRobotsTXT = true
     apple_touch_icon = "apple-touch-icon.png"
 
   [params.footer]
-    text = "Dream, Discipline, and Dedication"
+    text = "Dream, Discipline, and Dedication · Lalitpur, Nepal"
 
   # Home page: photo, short intro and buttons.
   # The image comes from assets/ys.webp
@@ -120,6 +120,10 @@ enableRobotsTXT = true
     [[params.profileMode.buttons]]
       name = "Notes"
       url = "/notes/"
+
+    [[params.profileMode.buttons]]
+      name = "Tools"
+      url = "/tools/"
 
 [[params.socialIcons]]
   name = "email"

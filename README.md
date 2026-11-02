@@ -11,7 +11,8 @@ Personal site: <https://yogeshsn.com.np>. Built with [Hugo](https://gohugo.io) a
 | About page text (CV) | `data/cv.yaml` (edit this one) |
 | Profile photo | `assets/ys.webp` |
 | Images used inside posts | next to the post (`content/posts/<name>/index.md` + image) or `static/img/` |
-| Colours, fonts, spacing | `assets/css/extended/custom.css` |
+| Colours, fonts, spacing | `assets/css/extended/custom.css` (colours are at the top) |
+| Tools (games, timers, calculators) | `content/tools/` (pages) and `assets/js/tools/` (code) |
 | Favicons and share image | `static/` |
 
 ## Run locally

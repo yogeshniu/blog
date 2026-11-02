@@ -6,6 +6,7 @@
   padding-bottom: 2rem;
 }
 .about h1, .about h2, .about h3 { letter-spacing: -0.015em; }
+.about h1, .about h2 { font-family: var(--font-display); }
 .about ul, .about ol { list-style: none; margin: 0; padding: 0; }
 .about p { margin: 0; }
 
@@ -25,7 +26,7 @@
 .a-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; font-weight: 600; color: var(--accent); }
 .a-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: a-pulse 2.2s ease-out infinite; }
 @keyframes a-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); } 100% { box-shadow: 0 0 0 10px transparent; } }
-.a-hero h1 { font-size: 2.3rem; line-height: 1.15; margin: 6px 0 4px; }
+.a-hero h1 { font-family: var(--font-display); font-size: 2.4rem; line-height: 1.15; margin: 6px 0 4px; }
 .a-headline { font-size: 1.1rem; color: var(--primary); font-weight: 500; }
 .a-headline span { color: var(--secondary); font-weight: 400; }
 .a-intro { margin-top: 14px; color: var(--secondary); line-height: 1.65; }
@@ -41,10 +42,8 @@
   transition: transform .15s, border-color .15s, background .15s;
 }
 .a-btn:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--accent); }
-.a-btn--primary { background: var(--accent); border-color: var(--accent); color: var(--theme); }
-.dark .a-btn--primary { color: #06201d; }
-.a-btn--primary:hover { color: var(--theme); opacity: .92; }
-.dark .a-btn--primary:hover { color: #06201d; }
+.a-btn--primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.a-btn--primary:hover { color: var(--on-accent); opacity: .92; }
 
 /* ----- numbers ----- */
 .a-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 18px 0 8px; }
@@ -62,8 +61,7 @@
 .a-nav::-webkit-scrollbar { display: none; }
 .a-nav a { flex: none; padding: 6px 16px; border-radius: 999px; font-size: .9rem; font-weight: 500; color: var(--secondary); }
 .a-nav a:hover { color: var(--primary); background: var(--accent-soft); }
-.a-nav a.is-active { color: var(--theme); background: var(--accent); }
-.dark .a-nav a.is-active { color: #06201d; }
+.a-nav a.is-active { color: var(--on-accent); background: var(--accent); }
 
 /* ----- sections ----- */
 .a-section { padding-top: 36px; scroll-margin-top: 56px; }
@@ -105,8 +103,7 @@
 .a-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
 .a-chips button { border: 1px solid var(--border); background: var(--theme); color: var(--secondary); padding: 5px 14px; border-radius: 999px; font-size: .86rem; font-weight: 500; }
 .a-chips button:hover { border-color: var(--accent); color: var(--accent); }
-.a-chips button.is-on { background: var(--accent); border-color: var(--accent); color: var(--theme); }
-.dark .a-chips button.is-on { color: #06201d; }
+.a-chips button.is-on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 .a-pubs { display: grid; gap: 12px; }
 .a-pub { padding: 16px 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--entry); transition: transform .15s, border-color .15s; }
 .a-pub:hover { transform: translateY(-2px); border-color: var(--accent); }
@@ -132,8 +129,7 @@
 .a-skill h3 { font-size: .95rem; margin: 0 0 10px; color: var(--secondary); text-transform: uppercase; letter-spacing: .06em; }
 .a-skill ul { display: flex; flex-wrap: wrap; gap: 7px; }
 .a-skill li { font-size: .88rem; font-weight: 500; padding: 4px 12px; border-radius: 8px; background: var(--accent-soft); color: var(--primary); transition: transform .12s, background .12s; }
-.a-skill li:hover { transform: translateY(-2px); background: var(--accent); color: var(--theme); }
-.dark .a-skill li:hover { color: #06201d; }
+.a-skill li:hover { transform: translateY(-2px); background: var(--accent); color: var(--on-accent); }
 .a-strengths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .a-strengths li { padding: 14px 16px; border-left: 3px solid var(--accent); border-radius: 4px 12px 12px 4px; background: var(--entry); font-size: .93rem; line-height: 1.5; }
 
