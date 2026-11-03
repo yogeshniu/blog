@@ -4,7 +4,7 @@
   var WORDS = {
     'Hydropower': ['reservoir', 'turbine', 'penstock', 'spillway', 'generator', 'tailrace', 'headrace', 'forebay', 'powerhouse', 'transformer', 'cavitation', 'governor', 'pelton', 'francis', 'kaplan', 'cofferdam', 'embankment', 'gabion', 'trashrack', 'sediment'],
     'Hydrology': ['catchment', 'rainfall', 'runoff', 'aquifer', 'watershed', 'evaporation', 'discharge', 'hydrograph', 'infiltration', 'baseflow', 'precipitation', 'streamflow', 'floodplain', 'glacier', 'snowmelt', 'monsoon', 'groundwater', 'tributary', 'estuary', 'drought'],
-    'Nepal': ['kathmandu', 'pokhara', 'lumbini', 'everest', 'annapurna', 'bhaktapur', 'dashain', 'tihar', 'himalaya', 'sherpa', 'koshi', 'gandaki', 'narayani', 'janakpur', 'biratnagar', 'dhaulagiri', 'langtang', 'kanchenjunga', 'chitwan', 'bagmati', 'karnali', 'trishuli', 'namaste', 'thamel'],
+    'Nepal': ['kathmandu', 'pokhara', 'lumbini', 'everest', 'annapurna', 'bhaktapur', 'dashain', 'tihar', 'himalaya', 'sherpa', 'koshi', 'gandaki', 'narayani', 'janakpur', 'biratnagar', 'dhaulagiri', 'langtang', 'kanchenjunga', 'chitwan', 'bagmati', 'karnali', 'trishuli', 'thamel', 'manaslu'],
     'Coding': ['variable', 'function', 'algorithm', 'iteration', 'recursion', 'python', 'javascript', 'database', 'compiler', 'debugging', 'library', 'dictionary', 'boolean', 'integer', 'framework', 'repository']
   };
   var MAX = 6, cats = Object.keys(WORDS), cat = 'Hydropower', word = '', got = {}, bad = [], over = false, last = '';

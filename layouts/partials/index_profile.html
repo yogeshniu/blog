@@ -38,7 +38,6 @@
             height="{{ .imageHeight | default 150 }}" width="{{ .imageWidth | default 150 }}" />
         {{- end }}
         {{- end }}
-        <p class="greeting"><span lang="ne">नमस्ते</span> Namaste</p>
         <h1>{{ .title | default site.Title | markdownify }}</h1>
         <span>{{ .subtitle | markdownify }}</span>
         {{- partial "social_icons.html" -}}
@@ -75,7 +74,7 @@
   <li>{{ len $cv.posters }} conference posters</li>
   {{- with index $cv.experience 0 }}<li>{{ .title }}</li>{{ end }}
 </ul>
-<p class="motto"><span lang="ne">दृढ संकल्प</span><i>·</i>Dream<i>·</i>Discipline<i>·</i>Dedication</p>
+<p class="motto">Dream<i>·</i>Discipline<i>·</i>Dedication</p>
 {{- with where $cv.publications "featured" true }}
 <section class="home-pubs">
   <h2>Selected publications</h2>

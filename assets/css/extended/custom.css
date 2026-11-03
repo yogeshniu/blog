@@ -40,17 +40,6 @@
   --border: #243550;
 }
 
-/* Dhaka-pattern ribbon along the very top of every page */
-body::before {
-  content: ""; display: block; height: 7px; width: 100%;
-  background:
-    linear-gradient(135deg, var(--accent) 25%, transparent 25%) -7px 0 / 14px 7px,
-    linear-gradient(225deg, var(--accent) 25%, transparent 25%) -7px 0 / 14px 7px,
-    linear-gradient(315deg, var(--accent2) 25%, transparent 25%) 0 0 / 14px 7px,
-    linear-gradient(45deg, var(--accent2) 25%, transparent 25%) 0 0 / 14px 7px;
-  background-color: var(--theme);
-}
-
 body {
   font-family: var(--font-sans);
   font-size: 17px;
@@ -256,7 +245,7 @@ body:has(.about) { --nav-width: 980px; }
   .nav { flex-wrap: wrap; }
 }
 
-/* ===== Home: Himalayan ridge, greeting and motto ===== */
+/* ===== Home: Himalayan ridge and motto ===== */
 html, body { overflow-x: clip; }
 .home-ridge {
   height: 132px; margin: 6px 0 -78px; border-radius: 20px 20px 0 0; overflow: hidden;
@@ -268,10 +257,7 @@ html, body { overflow-x: clip; }
 .home-ridge .r2 { fill: var(--accent); opacity: .2; }
 .home-ridge .r3 { fill: var(--accent2); opacity: .42; }
 .main .profile { min-height: 0; padding-top: 0; position: relative; z-index: 1; }
-.profile_inner .greeting { margin: 12px 0 0; font-size: 1.05rem; color: var(--accent); font-weight: 600; letter-spacing: .02em; }
-.profile_inner .greeting span { font-size: 1.2rem; margin-right: 6px; }
-.profile_inner h1 { margin-top: 4px; }
+.profile_inner h1 { margin-top: 14px; }
 .motto { margin: 16px 0 0; text-align: center; font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: var(--secondary); font-weight: 600; }
-.motto span { text-transform: none; letter-spacing: .04em; font-size: 1rem; color: var(--accent); font-weight: 700; }
 .motto i { font-style: normal; margin: 0 10px; color: var(--accent2); opacity: .7; }
 .dark .home-ridge .r3 { opacity: .55; }
