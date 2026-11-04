@@ -147,3 +147,24 @@
 
 .tool-find { display: flex; align-items: center; gap: 12px; margin: 16px 0 4px; }
 .tool-find input { max-width: 340px; }
+
+/* ---- Hydropower design tools (hydroui.js) ---- */
+.hu-sub { grid-column: 1 / -1; margin: 12px 0 0; font-size: .82rem; text-transform: uppercase; letter-spacing: .07em; color: var(--secondary); font-family: var(--font-sans); }
+.hu-sub:first-child { margin-top: 0; }
+.hu-wide { grid-column: 1 / -1; }
+.hu-area { font-family: var(--font-mono, monospace); font-size: .9rem; resize: vertical; }
+.hu-out { margin-top: 14px; }
+.hu-scroll { overflow-x: auto; margin-top: 12px; }
+.hu-table { width: 100%; border-collapse: collapse; font-size: .95rem; margin: 0; }
+.hu-table th, .hu-table td { padding: 6px 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; background: transparent; }
+.hu-table th { font-size: .8rem; color: var(--secondary); text-transform: uppercase; letter-spacing: .04em; }
+.hu-table:not(.hu-grid) td:nth-child(2) { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hu-table:not(.hu-grid) td:nth-child(3) { color: var(--secondary); width: 5.5em; }
+.hu-grid td:not(:first-child), .hu-grid th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+.hu-checks { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 6px; }
+.hu-checks li { padding: 8px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--theme); font-size: .92rem; }
+.hu-checks small { color: var(--secondary); }
+.hu-val { color: var(--secondary); font-variant-numeric: tabular-nums; }
+.hu-ok b { color: #15803d; } .dark .hu-ok b { color: #4ade80; }
+.hu-bad { border-color: var(--accent); } .hu-bad b { color: var(--accent); }
+.hu-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
