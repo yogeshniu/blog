@@ -1,0 +1,13 @@
+# Categories shown on the Tools page, in this order.
+# To add a category, add a block here, then give your tool page  group = "<key>".
+# (A tool whose group is not listed here still shows up, under "More tools".)
+- key: Learn
+  label: Learn
+- key: Nepali
+  label: Nepali tools
+- key: Focus
+  label: Focus and productivity
+- key: Engineering
+  label: Engineering calculators
+- key: Games
+  label: Games for a break

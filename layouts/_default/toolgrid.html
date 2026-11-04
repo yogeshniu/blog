@@ -5,25 +5,38 @@
   <h1>{{ .Title }}</h1>
   {{- with .Description }}<div class="post-description">{{ . }}</div>{{ end }}
 </header>
-{{- $groups := slice (dict "key" "Learn" "label" "Learn") (dict "key" "Focus" "label" "Focus and productivity") (dict "key" "Engineering" "label" "Engineering calculators") (dict "key" "Games" "label" "Games for a break") }}
 {{- $pages := .RegularPages }}
+{{- $groups := site.Data.tool_groups }}
+{{- if gt (len $pages) 8 }}
+<div class="tool-find"><input type="search" id="tool-q" class="tinput" placeholder="Search {{ len $pages }} tools…" aria-label="Search tools" autocomplete="off"><span id="tool-n" class="thint" aria-live="polite"></span></div>
+{{- end }}
+{{- $known := slice }}
+{{- range $groups }}{{ $known = $known | append .key }}{{ end }}
 {{- range $groups }}
-  {{- $key := .key }}{{ $label := .label }}
-  {{- with (where $pages "Params.group" $key).ByWeight }}
+  {{- $label := .label }}
+  {{- with (where $pages "Params.group" .key).ByWeight }}
   <section class="tool-group">
     <h2>{{ $label }}</h2>
-    <div class="topic-grid">
-      {{- range . }}
-      <a class="topic-card tool-card" href="{{ .RelPermalink }}">
-        <span class="tool-card__icon" aria-hidden="true">{{ .Params.icon }}</span>
-        <span class="topic-card__title">{{ .Title }}</span>
-        <span class="topic-card__desc">{{ .Description }}</span>
-        <span class="topic-card__meta">Open <i aria-hidden="true">&rarr;</i></span>
-      </a>
-      {{- end }}
-    </div>
+    <div class="topic-grid">{{ partial "tool-card.html" . }}</div>
   </section>
   {{- end }}
 {{- end }}
+{{- $other := slice }}
+{{- range $pages }}{{ if not (in $known .Params.group) }}{{ $other = $other | append . }}{{ end }}{{ end }}
+{{- with $other }}
+<section class="tool-group"><h2>More tools</h2><div class="topic-grid">{{ partial "tool-card.html" . }}</div></section>
+{{- end }}
 <p class="tool-note">Everything here runs in your browser. Nothing you type is sent anywhere; saved items stay on this device.</p>
+<script>
+(function () {
+  var q = document.getElementById('tool-q'); if (!q) return;
+  var cards = document.querySelectorAll('.tool-card'), groups = document.querySelectorAll('.tool-group'), n = document.getElementById('tool-n');
+  q.addEventListener('input', function () {
+    var s = q.value.trim().toLowerCase(), shown = 0;
+    cards.forEach(function (c) { var ok = !s || c.textContent.toLowerCase().indexOf(s) !== -1; c.style.display = ok ? '' : 'none'; if (ok) shown++; });
+    groups.forEach(function (g) { g.style.display = g.querySelector('.tool-card:not([style*="none"])') ? '' : 'none'; });
+    n.textContent = s ? shown + ' found' : '';
+  });
+})();
+</script>
 {{- end }}

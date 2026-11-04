@@ -1,7 +1,11 @@
 {{- define "main" }}
 {{- $name := .Params.tool -}}
 {{- $css := resources.Get "css/tools.css" | resources.Minify | resources.Fingerprint -}}
-{{- $js := slice (resources.Get "js/tools/common.js") (resources.Get (printf "js/tools/%s.js" $name)) | resources.Concat (printf "js/tool-%s.js" $name) | resources.Minify | resources.Fingerprint -}}
+{{- /* Scripts loaded for a tool, in order: shared helpers, any extra scripts listed in the page's  scripts = [...]  (paths under assets/js/), then the tool's own file. */ -}}
+{{- $parts := slice (resources.Get "js/tools/common.js") -}}
+{{- range .Params.scripts }}{{ $parts = $parts | append (resources.Get (printf "js/%s.js" .)) }}{{ end -}}
+{{- $parts = $parts | append (resources.Get (printf "js/tools/%s.js" $name)) -}}
+{{- $js := $parts | resources.Concat (printf "js/tool-%s.js" $name) | resources.Minify | resources.Fingerprint -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 <header class="page-header">
   <h1>{{ .Title }}</h1>
