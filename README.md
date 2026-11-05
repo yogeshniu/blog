@@ -14,6 +14,7 @@ Personal site: <https://yogeshsn.com.np>. Built with [Hugo](https://gohugo.io) a
 | Colours, fonts, spacing | `assets/css/extended/custom.css` (colours are at the top) |
 | Tools (games, timers, calculators, Nepali tools) | `content/tools/` (pages) and `assets/js/tools/` (code). **Add one:** `python3 scripts/new-tool.py "Name"`, see `docs/ADDING-A-TOOL.md` |
 | Hydropower design tools (settling basin, gravel trap, intake, culvert, spillway, headpond, reservoir, head loss) | pages in `content/tools/`, code in `assets/js/tools/hydrolib.js` (calculations) + `hydroui.js` (cards); see `docs/HYDRO-TOOLS.md` |
+| Land converter, flow duration curve, hydrology formulas, citation maker, flashcards | pages in `content/tools/`, code in `assets/js/tools/` (`*lib.js` logic + page script); see `docs/MORE-TOOLS.md` |
 | Tool categories | `data/tool_groups.yaml` |
 | Favicons and share image | `static/` |
 
